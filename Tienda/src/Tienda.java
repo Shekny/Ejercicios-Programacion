@@ -57,8 +57,8 @@ public class Tienda {
         Random descuento = new Random();
         int aleatorio = descuento.nextInt(5)+6;
         double totalsinIVA = (numPlacabase * PPlacabase) + (numGrafica * PGrafica) + (numRam * PRam) + (numVentilador * PVentilador)+ (numPantalla * PPantalla);
-        double IVA = (21)/100;
-        double IVArepercutido = (totalsinIVA * 21)/100;
+        double IVA = (21);
+        double IVArepercutido = (totalsinIVA * IVA)/100;
         double totalconIVA = (totalsinIVA + IVArepercutido);
         double descuentoaplicado = (totalsinIVA - aleatorio);
         double totalfinal = (totalconIVA - descuentoaplicado);
@@ -68,9 +68,10 @@ public class Tienda {
         String nombrecompleto = sc.nextLine();
         int espacio = nombrecompleto.indexOf(" ");
         String nombre = nombrecompleto.substring(0, espacio);
+        String mayusculas = nombrecompleto.toUpperCase();
         String L1 = nombre.toUpperCase().charAt(0) + nombre.substring(1,nombre.length());
         System.out.println("\u001B[40m" + "\u001B[32m" + "Sr/Sra "+ L1 +" aqui tiene su factura" + "\u001B[0m");
-        System.out.println("\u001B[40m" + "\u001B[32m" + "Nombre cliente: " + nombrecompleto + "\u001B[0m");
+        System.out.println("\u001B[40m" + "\u001B[32m" + "Nombre cliente: " + mayusculas + "\u001B[0m");
         System.out.println("\u001B[40m" + "\u001B[32m" + "Cantidad de Placas Base: " + numPlacabase + "\u001B[0m");
         System.out.println("\u001B[40m" + "\u001B[32m" + "Cantidad de Graficas: " + numGrafica + "\u001B[0m");
         System.out.println("\u001B[40m" + "\u001B[32m" + "Cantidad de Memoria Ram: " + numRam + "\u001B[0m");
@@ -80,7 +81,7 @@ public class Tienda {
         System.out.println("\u001B[40m" + "\u001B[32m" + "IVA aplicado: 21% " + IVA + "\u001B[0m");
         System.out.printf("\u001B[40m" + "\u001B[32m" + "IVA Repercutido: %.2f €\u001B[0m \n" , IVArepercutido);
         System.out.printf("\u001B[40m" + "\u001B[32m" + "Total con IVA: %.2f €\u001B[0m \n" , totalconIVA);
-        System.out.println("\u001B[40m" + "\u001B[32m" + "Descuento por 1ª vez: " + "%" + aleatorio + "\u001B[0m");
+        System.out.println("\u001B[40m" + "\u001B[32m" + "Descuento por 1ª vez: " + aleatorio + "%" + "\u001B[0m");
         System.out.printf("\u001B[40m" + "\u001B[32m" + "Valor descontado: %.2f €\u001B[0m \n" , descuentoaplicado);
         System.out.printf("\u001B[40m" + "\u001B[32m" + "Total final: %.2f €\u001B[0m \n" , totalfinal);
 
